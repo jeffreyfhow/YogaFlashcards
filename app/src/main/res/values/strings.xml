@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Yoga Flash Cards</string>
+    <string name="test_string">test_string</string>
+    <string name="fail_button">fail button</string>
+    <string name="pass_button">pass button</string>
+    <string name="pose_image">Pose image</string>
+    <string name="english_name">English Name</string>
+    <string name="sanskrit_name">Sanskrit Name</string>
+</resources>
