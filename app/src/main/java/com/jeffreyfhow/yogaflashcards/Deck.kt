@@ -1,25 +1,29 @@
 package com.jeffreyfhow.yogaflashcards
-import Pose
 import android.app.Activity
 import android.content.Context
-import android.support.design.widget.CoordinatorLayout
 import android.support.design.widget.Snackbar
-import android.view.View
-
-const val MAX_X_DIST = 300f
-const val MAX_ROT = 10f
-const val MAX_ROT_ROOTED = 50f
-const val NEXT_CARD_DIST = 200f
+import com.jeffreyfhow.yogaflashcards.Animation.AnimationManager
+import com.jeffreyfhow.yogaflashcards.Animation.ILeftAnimationObserver
+import com.jeffreyfhow.yogaflashcards.Animation.IRightAnimationObserver
+import com.jeffreyfhow.yogaflashcards.Cards.BottomCard
+import com.jeffreyfhow.yogaflashcards.Cards.ITopCardReleaseObserver
+import com.jeffreyfhow.yogaflashcards.Cards.TopCard
+import com.jeffreyfhow.yogaflashcards.Cards.TopCardLocation
+import com.jeffreyfhow.yogaflashcards.Pose.Pose
 
 /**
  * Created by jeffreyhow on 8/7/17.
+ * Manages the interactions between the Cards
  */
-class Deck (val context: Context, val poses: MutableList<Pose>) :
+class Deck (private val context: Context, private val poses: MutableList<Pose>) :
     ITopCardReleaseObserver, ILeftAnimationObserver, IRightAnimationObserver
 {
+    /*****************************************************************************************
+     *                               Initialization
+     *****************************************************************************************/
     private var currPoses: MutableList<Pose> = mutableListOf()
-    var topCard: TopCard
-    var bottomCard: BottomCard
+    private var topCard: TopCard
+    private var bottomCard: BottomCard
     private var nextPose: Pose? = null
     private var snackBar: Snackbar? = null
     var isInteractable: Boolean = true
@@ -35,28 +39,35 @@ class Deck (val context: Context, val poses: MutableList<Pose>) :
         // Hook Up Animation Manager
         AnimationManager.topCard = topCard
         AnimationManager.bottomCard = bottomCard
-        AnimationManager.mainActivity = activity as MainActivity
         AnimationManager.registerLeftObserver(this)
         AnimationManager.registerRightObserver(this)
 
         resetPoses()
     }
 
-    // Deck Manipulation
+    /*****************************************************************************************
+     *                               Deck Manipulation
+     *****************************************************************************************/
+    /**
+     * Trashes card -> tweens rightward off screen and removes pose from deck
+     */
     fun trash(isRooted: Boolean){
         val pose: Pose? = getRandomPose()
-        if(pose != null){
-            nextPose = pose
-        } else if (topCard.pose == bottomCard.pose) {
-            nextPose = bottomCard.pose
-            showResetSnackBar()
-        } else {
-            nextPose = bottomCard.pose
+        when {
+            pose != null -> nextPose = pose
+            topCard.pose == bottomCard.pose -> {
+                nextPose = bottomCard.pose
+                showResetSnackBar()
+            }
+            else -> nextPose = bottomCard.pose
         }
         makeInteractable(false)
         AnimationManager.playRightAnimations(isRooted)
     }
 
+    /**
+     * Keeps card -> tweens leftward off screen and returns pose to deck
+     */
     fun keep(isRooted: Boolean){
 
         val pose: Pose? = getRandomPose()
@@ -70,7 +81,12 @@ class Deck (val context: Context, val poses: MutableList<Pose>) :
         AnimationManager.playLeftAnimations(isRooted)
     }
 
-    // Helper Functions
+    /*****************************************************************************************
+     *                               Event Handlers
+     *****************************************************************************************/
+    /**
+     * Reshuffles all poses into deck
+     */
     private fun resetPoses(){
         currPoses = poses.map{it}.toMutableList()
         topCard.updateDisplay(getRandomPose())
@@ -82,6 +98,9 @@ class Deck (val context: Context, val poses: MutableList<Pose>) :
         else currPoses.removeAt((Math.random() * currPoses.size).toInt())
     }
 
+    /**
+     * Sets both cards to their next poses
+     */
     private fun setNextCard(){
         topCard.updateDisplay(bottomCard.pose)
         topCard.reset()
@@ -89,6 +108,9 @@ class Deck (val context: Context, val poses: MutableList<Pose>) :
         bottomCard.reset()
     }
 
+    /**
+     * Shows snackbar when exhausted through all cards
+     */
     private fun showResetSnackBar(){
         if(snackBar == null) {
             snackBar = Snackbar.make(
@@ -102,12 +124,17 @@ class Deck (val context: Context, val poses: MutableList<Pose>) :
         snackBar?.show()
     }
 
+    /**
+     * toggles isInteractable (which is used to denote when a card can be interacted with)
+     */
     private fun makeInteractable(on: Boolean = true){
         isInteractable = on
         topCard.isInteractable = on
     }
 
-    // Event Handlers
+    /*****************************************************************************************
+     *                               Event Handlers
+     *****************************************************************************************/
     override fun onLeftAnimationComplete() {
         setNextCard()
         makeInteractable()

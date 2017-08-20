@@ -1,28 +1,33 @@
-package com.jeffreyfhow.yogaflashcards
-
-import Pose
+package com.jeffreyfhow.yogaflashcards.Cards
 import android.content.Context
 import android.util.AttributeSet
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
-import org.w3c.dom.Text
+import com.jeffreyfhow.yogaflashcards.Pose.Pose
+import com.jeffreyfhow.yogaflashcards.R
 
 /**
  * Created by jeffreyhow on 8/6/17.
+ * Superclass for Top & Bottom Cards
  */
-
 open class Card : LinearLayout
 {
+    /**
+     * Initialization
+     */
     lateinit var pose : Pose
-    var imgView: ImageView? = null
-    var engView: TextView? = null
-    var sanView: TextView? = null
+    private var imgView: ImageView? = null
+    private var engView: TextView? = null
+    private var sanView: TextView? = null
 
     constructor(context: Context) : this(context, null)
     constructor(context: Context, attrs: AttributeSet?) : this(context, attrs, 0)
     constructor(context: Context, attrs: AttributeSet?, defStyleAttr: Int) : super(context, attrs, defStyleAttr)
 
+    /**
+     * Updates the card display based on a Pose
+     */
     fun updateDisplay(p : Pose? = null) : Boolean {
         if(p != null) pose = p
 
@@ -38,20 +43,19 @@ open class Card : LinearLayout
         return true
     }
 
+    /**
+     * Makes translation text transparent
+     */
     fun hideText(){
         engView?.alpha = 0f
         sanView?.alpha = 0f
     }
 
+    /**
+     * Makes translation text opaque
+     */
     fun showText(){
         engView?.alpha = 1f
         sanView?.alpha = 1f
     }
-
-    fun getImageId(context: Context, imageName: String): Int {
-        return context.getResources().getIdentifier("drawable/" + imageName, null, context.getPackageName())
-    }
-
-
-
 }

@@ -1,13 +1,9 @@
+package com.jeffreyfhow.yogaflashcards.Pose
+
 /**
  * Created by jeffreyhow on 7/12/17.
+ * Pose data class to hold all info related to a particular yoga pose.
  */
-import com.beust.klaxon.JsonObject
-
-enum class Grade { A, B, C, D, F, NULL }
-data class Translation(val sanskrit: String, val english: String){
-    override fun toString() = "$sanskrit = $english"
-}
-
 data class Pose (
     val id: String,
     val engName: String,
@@ -20,6 +16,9 @@ data class Pose (
     val img_file: String? = null,
     var grade: Grade = Grade.NULL
 ){
+    /**
+     * The following functions are used to create a custom formatted string representation for the Pose.
+     */
     fun idString() = "  \"id\": \"$id\",\n"
     fun engString() = "  \"english\": \"$engName\",\n"
     fun posString() = "  \"position\": \"$position\",\n"

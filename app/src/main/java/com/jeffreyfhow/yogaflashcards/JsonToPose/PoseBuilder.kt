@@ -1,33 +1,33 @@
-package com.jeffreyfhow.yogaflashcards
-import Pose
-import Translation
-import Grade
+package com.jeffreyfhow.yogaflashcards.JsonToPose
 import com.beust.klaxon.*
+import com.jeffreyfhow.yogaflashcards.Pose.Grade
+import com.jeffreyfhow.yogaflashcards.Pose.Pose
+import com.jeffreyfhow.yogaflashcards.Pose.Translation
 
 /**
  * Created by jeffreyhow on 7/29/17.
+ * Singleton used to build Pose objects from custom JsonObjects
  */
-
-class IncompletePoseException(jsonObj: JsonObject, poseDetailType: String):
-        RuntimeException("IncompletePoseException: pose does not contain required data - $poseDetailType\n$jsonObj")
-
-class PoseBuilder {
-    fun createPose(jsonObj: JsonObject): Pose? {
+object PoseBuilder {
+    /**
+     * Creates Pose object from custom formatted JsonObject
+     */
+    private fun createPose(jsonObj: JsonObject): Pose? {
         val reqPropNames = listOf("id", "english", "difficulty", "position", "classification")
-        var reqPropMap: MutableMap<String, String?> = mutableMapOf()
+        val reqPropMap: MutableMap<String, String?> = mutableMapOf()
 
         // Required Properties
         for (name in reqPropNames) reqPropMap[name] = jsonObj.string(name)
-        var grade: Grade = Grade.valueOf(jsonObj.string("grade")?:"NULL")
+        val grade: Grade = Grade.valueOf(jsonObj.string("grade")?:"NULL")
 
         //Optional Properties
         val sanskritName = jsonObj.string("sanskrit")
         val img_file = jsonObj.string("img_file")
 
-        var translations: MutableList<Translation> = mutableListOf()
+        val translations: MutableList<Translation> = mutableListOf()
         val jsonTranslations = jsonObj.array<String>("translations")
         jsonTranslations?.forEach {
-            it?.let{ // Warning is a lie
+            it.let{ // Warning is a lie
                 val (san, eng) = it.split("=")
                 translations.add(Translation(san.trim(), eng.trim()))
             }
@@ -54,10 +54,13 @@ class PoseBuilder {
         }
     }
 
+    /**
+     * Creates list of poses from custom formatted JsonArray
+     */
     fun createPoses(jsonArr: JsonArray<JsonObject>): MutableList<Pose> {
-        var poses: MutableList<Pose> = mutableListOf()
+        val poses: MutableList<Pose> = mutableListOf()
         for(item in jsonArr){
-            var pose = createPose(item)
+            val pose = createPose(item)
             if(pose != null) {
                 poses.add(pose)
             } else {

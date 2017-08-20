@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.jeffreyfhow.yogaflashcards.TopCard
+<com.jeffreyfhow.yogaflashcards.Cards.TopCard
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:card_view="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -81,4 +81,4 @@
 
         </android.support.constraint.ConstraintLayout>
     </android.support.v7.widget.CardView>
-</com.jeffreyfhow.yogaflashcards.TopCard>
+</com.jeffreyfhow.yogaflashcards.Cards.TopCard>
