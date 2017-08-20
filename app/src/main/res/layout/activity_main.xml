@@ -40,34 +40,37 @@
             android:layout_width="78dp"
             android:layout_height="78dp"
             android:background="@null"
+            android:contentDescription="@string/incorrect_button"
             android:onClick="onKeep"
             android:scaleType="fitCenter"
             android:tint="@color/btn_tint"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toLeftOf="@+id/show_button"
-            app:srcCompat="@drawable/icon_cancel78"
-            app:layout_constraintTop_toBottomOf="@+id/back_card" />
+            app:layout_constraintTop_toBottomOf="@+id/back_card"
+            app:srcCompat="@drawable/icon_cancel78" />
 
         <ImageButton
             android:id="@+id/show_button"
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:background="@null"
+            android:contentDescription="@string/show_pose_name_button"
             android:onClick="onShow"
             android:scaleType="fitCenter"
             android:tint="@color/btn_tint"
-            app:srcCompat="@drawable/icon_search"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintRight_toLeftOf="@+id/okay_button"
             app:layout_constraintLeft_toRightOf="@+id/cancel_button"
-            app:layout_constraintTop_toBottomOf="@+id/back_card" />
+            app:layout_constraintRight_toLeftOf="@+id/okay_button"
+            app:layout_constraintTop_toBottomOf="@+id/back_card"
+            app:srcCompat="@drawable/icon_search" />
 
         <ImageButton
             android:id="@+id/okay_button"
             android:layout_width="78dp"
             android:layout_height="78dp"
             android:background="@null"
+            android:contentDescription="@string/correct_button"
             android:onClick="onTrash"
             android:scaleType="fitCenter"
             android:tint="@color/btn_tint"

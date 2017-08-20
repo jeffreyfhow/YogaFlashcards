@@ -6,4 +6,7 @@
     <string name="pose_image">Pose image</string>
     <string name="english_name">English Name</string>
     <string name="sanskrit_name">Sanskrit Name</string>
+    <string name="correct_button">Correct Button</string>
+    <string name="incorrect_button">Incorrect Button</string>
+    <string name="show_pose_name_button">Show Pose Name Button</string>
 </resources>
