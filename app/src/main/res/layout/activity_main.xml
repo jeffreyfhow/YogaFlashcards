@@ -2,6 +2,7 @@
 <android.support.design.widget.CoordinatorLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/coordinator"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
@@ -30,33 +31,51 @@
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toTopOf="@+id/imageButton"
+            app:layout_constraintBottom_toTopOf="@+id/cancel_button"
             app:layout_constraintHorizontal_bias="0.0"
             />
 
         <ImageButton
-            android:id="@+id/imageButton"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
+            android:id="@+id/cancel_button"
+            android:layout_width="78dp"
+            android:layout_height="78dp"
+            android:background="@null"
+            android:onClick="onKeep"
             android:scaleType="fitCenter"
-            app:srcCompat="@drawable/synchronize"
+            android:tint="@color/btn_tint"
             app:layout_constraintBottom_toBottomOf="parent"
-            android:layout_marginBottom="28dp"
             app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toLeftOf="@+id/imageButton2"
-            android:onClick="onKeep"/>
+            app:layout_constraintRight_toLeftOf="@+id/show_button"
+            app:srcCompat="@drawable/icon_cancel78"
+            app:layout_constraintTop_toBottomOf="@+id/back_card" />
 
         <ImageButton
-            android:id="@+id/imageButton2"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
+            android:id="@+id/show_button"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:background="@null"
+            android:onClick="onShow"
             android:scaleType="fitCenter"
-            app:srcCompat="@drawable/trash"
+            android:tint="@color/btn_tint"
+            app:srcCompat="@drawable/icon_search"
             app:layout_constraintBottom_toBottomOf="parent"
-            android:layout_marginBottom="28dp"
+            app:layout_constraintRight_toLeftOf="@+id/okay_button"
+            app:layout_constraintLeft_toRightOf="@+id/cancel_button"
+            app:layout_constraintTop_toBottomOf="@+id/back_card" />
+
+        <ImageButton
+            android:id="@+id/okay_button"
+            android:layout_width="78dp"
+            android:layout_height="78dp"
+            android:background="@null"
+            android:onClick="onTrash"
+            android:scaleType="fitCenter"
+            android:tint="@color/btn_tint"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toRightOf="@+id/show_button"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintLeft_toRightOf="@+id/imageButton"
-            android:onClick="onTrash"/>
+            app:layout_constraintTop_toBottomOf="@+id/back_card"
+            app:srcCompat="@drawable/icon_ok78" />
 
         <include
             android:id="@+id/top_card"
@@ -74,7 +93,7 @@
             android:layout_marginEnd="8dp"
             app:layout_constraintHorizontal_bias="0.0"
             android:layout_marginBottom="8dp"
-            app:layout_constraintBottom_toTopOf="@+id/imageButton" />
+            app:layout_constraintBottom_toTopOf="@+id/cancel_button" />
 
     </android.support.constraint.ConstraintLayout>
 </android.support.design.widget.CoordinatorLayout>

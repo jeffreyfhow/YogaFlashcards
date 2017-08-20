@@ -81,6 +81,13 @@ class Deck (private val context: Context, private val poses: MutableList<Pose>) 
         AnimationManager.playLeftAnimations(isRooted)
     }
 
+    /**
+     * Reveals text of top card
+     */
+    fun reveal(){
+        topCard.showText()
+    }
+
     /*****************************************************************************************
      *                               Event Handlers
      *****************************************************************************************/

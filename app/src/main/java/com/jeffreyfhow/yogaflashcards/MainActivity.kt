@@ -25,16 +25,24 @@ class MainActivity : AppCompatActivity() {
     }
 
     /**
-     * Click handler for 'Trash' button
+     * Click handler for 'Okay' button
      */
     fun onTrash(v:View){
         if(deck.isInteractable) deck.trash(true)
     }
 
     /**
-     * Click handler for 'Keep' button
+     * Click handler for 'Cancel' button
      */
     fun onKeep(v:View){
         if(deck.isInteractable) deck.keep(true)
     }
+
+    /**
+     * Click handler for 'Show' button
+     */
+    fun onShow(v:View){
+        if(deck.isInteractable) deck.reveal()
+    }
+
 }
