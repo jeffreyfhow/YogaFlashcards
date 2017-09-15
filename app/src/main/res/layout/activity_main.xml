@@ -108,4 +108,10 @@
             app:layout_constraintTop_toTopOf="parent" />
 
     </android.support.constraint.ConstraintLayout>
+
+    <include
+        android:id="@+id/main_info_card"
+        layout="@layout/info_card"
+         />
+
 </android.support.design.widget.CoordinatorLayout>

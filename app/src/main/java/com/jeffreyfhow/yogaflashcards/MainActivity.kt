@@ -3,10 +3,12 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import JsonParser
+import android.support.v7.widget.CardView
 import android.support.v7.widget.Toolbar
 import com.jeffreyfhow.yogaflashcards.JsonToPose.PoseBuilder
 import android.view.MenuItem
 import android.view.Menu
+import android.widget.Button
 
 /**
  * Swiping through cards via dragging or buttons
@@ -14,7 +16,7 @@ import android.view.Menu
 class MainActivity : AppCompatActivity() {
 
     private lateinit var deck: Deck
-
+    private lateinit var infoCard: CardView
     /**
      * Create the deck of Pose Cards from json data
      */
@@ -28,6 +30,10 @@ class MainActivity : AppCompatActivity() {
 
         val myToolbar: Toolbar = findViewById(R.id.my_toolbar) as Toolbar
         setSupportActionBar(myToolbar)
+
+        infoCard = findViewById(R.id.main_info_card) as CardView
+        infoCard.visibility = CardView.INVISIBLE
+
     }
 
     /**
@@ -52,6 +58,13 @@ class MainActivity : AppCompatActivity() {
     }
 
     /**
+     * Click handler for 'Back' button
+     */
+    fun onBack(v: View){
+        infoCard.visibility = CardView.INVISIBLE
+    }
+
+    /**
      * Attach menu to toolbar
      */
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -66,14 +79,11 @@ class MainActivity : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             R.id.menu_main_help -> {
-                // User chose the "Settings" item, show the app settings UI...
                 println("Help")
                 return true
             }
             R.id.menu_main_info -> {
-                // User chose the "Favorite" action, mark the current item
-                // as a favorite...
-                println("Info")
+                infoCard.visibility = CardView.VISIBLE
                 return true
             }
             else -> {

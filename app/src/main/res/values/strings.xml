@@ -9,4 +9,12 @@
     <string name="correct_button">Correct Button</string>
     <string name="incorrect_button">Incorrect Button</string>
     <string name="show_pose_name_button">Show Pose Name Button</string>
+    <string name="info_future_desc">New and improved design/art (including new yoga pose images).\n\nA few go-to default decks of cards (so you don\'t need to go over every pose available).\n\nAbility to create your own custom decks of flash cards.</string>
+    <string name="background">Background</string>
+    <string name="future_updates">Future Updates</string>
+    <string name="background_desc">This prototype app was created to help yogi\'s memorize the names of yoga poses (like flash cards).</string>
+    <string name="background_description">background description</string>
+    <string name="background_label">background label</string>
+    <string name="future_updates_description">future updates description</string>
+    <string name="future_updates_label">future updates label</string>
 </resources>
