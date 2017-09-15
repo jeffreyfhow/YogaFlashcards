@@ -5,6 +5,8 @@ import android.view.View
 import JsonParser
 import android.support.v7.widget.Toolbar
 import com.jeffreyfhow.yogaflashcards.JsonToPose.PoseBuilder
+import android.view.MenuItem
+import android.view.Menu
 
 /**
  * Swiping through cards via dragging or buttons
@@ -49,4 +51,36 @@ class MainActivity : AppCompatActivity() {
         if(deck.isInteractable) deck.reveal()
     }
 
+    /**
+     * Attach menu to toolbar
+     */
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        menuInflater.inflate(R.menu.menu, menu)
+        return true
+    }
+
+    /**
+     * Toolbar Handler
+     */
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            R.id.menu_main_help -> {
+                // User chose the "Settings" item, show the app settings UI...
+                println("Help")
+                return true
+            }
+            R.id.menu_main_info -> {
+                // User chose the "Favorite" action, mark the current item
+                // as a favorite...
+                println("Info")
+                return true
+            }
+            else -> {
+                // If we got here, the user's action was not recognized.
+                // Invoke the superclass to handle it.
+                return super.onOptionsItemSelected(item)
+            }
+        }
+    }
 }
