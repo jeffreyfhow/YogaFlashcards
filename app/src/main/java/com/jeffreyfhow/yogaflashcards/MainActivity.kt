@@ -3,6 +3,7 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import JsonParser
+import android.support.v7.widget.Toolbar
 import com.jeffreyfhow.yogaflashcards.JsonToPose.PoseBuilder
 
 /**
@@ -22,6 +23,9 @@ class MainActivity : AppCompatActivity() {
         // Create Deck with Json Data
         val jsonObject = JsonParser.jsonFileToJsonArr("/res/raw/yoga_data_test.json")
         deck = Deck(this, PoseBuilder.createPoses(jsonObject))
+
+        val myToolbar: Toolbar = findViewById(R.id.my_toolbar) as Toolbar
+        setSupportActionBar(myToolbar)
     }
 
     /**
