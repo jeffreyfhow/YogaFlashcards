@@ -22,7 +22,7 @@ class MainActivity : AppCompatActivity() {
      */
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_main_2)
 
         // Create Deck with Json Data
         val jsonObject = JsonParser.jsonFileToJsonArr("/res/raw/yoga_data_test.json")
