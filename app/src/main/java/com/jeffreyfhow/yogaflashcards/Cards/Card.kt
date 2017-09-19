@@ -6,6 +6,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import com.jeffreyfhow.yogaflashcards.Pose.Pose
 import com.jeffreyfhow.yogaflashcards.R
+import org.w3c.dom.Text
 
 /**
  * Created by jeffreyhow on 8/6/17.
@@ -33,9 +34,9 @@ open class Card : CardView
 
         if(pose == null) return false
 
-        imgView = imgView ?: this.findViewById(R.id.pose_image) as ImageView
-        engView = engView ?: this.findViewById(R.id.english_name) as TextView
-        sanView = sanView ?: this.findViewById(R.id.sanskrit_name) as TextView
+        imgView = imgView ?: findViewById<ImageView>(R.id.pose_image)
+        engView = engView ?: findViewById<TextView>(R.id.english_name)
+        sanView = sanView ?: findViewById<TextView>(R.id.sanskrit_name)
         val drawId: Int = resources.getIdentifier("${pose.img_file?.removeSuffix(".png")}", "drawable", context.packageName)
         imgView?.setImageResource(drawId)
         engView?.text = pose.engName

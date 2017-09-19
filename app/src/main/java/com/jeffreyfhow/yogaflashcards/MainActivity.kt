@@ -27,10 +27,10 @@ class MainActivity : AppCompatActivity() {
         val jsonObject = JsonParser.jsonFileToJsonArr("/res/raw/yoga_data_test.json")
         deck = Deck(this, PoseBuilder.createPoses(jsonObject))
 
-        val myToolbar: Toolbar = findViewById(R.id.my_toolbar) as Toolbar
+        val myToolbar: Toolbar = findViewById<Toolbar>(R.id.my_toolbar)
         setSupportActionBar(myToolbar)
 
-        infoCard = findViewById(R.id.main_info_card) as CardView
+        infoCard = findViewById<CardView>(R.id.main_info_card)
         infoCard.visibility = CardView.INVISIBLE
 
     }

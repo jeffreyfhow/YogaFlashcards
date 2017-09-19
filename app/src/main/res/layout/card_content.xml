@@ -8,6 +8,13 @@
     tools:layout_editor_absoluteX="0dp"
     tools:layout_editor_absoluteY="0dp">
 
+    <android.support.constraint.Guideline
+        android:id="@+id/card_guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        card_view:layout_constraintGuide_percent=".25" />
+
     <ImageView
         android:id="@+id/pose_image"
         android:contentDescription="@string/pose_image"
@@ -23,24 +30,21 @@
 
     <TextView
         android:id="@+id/english_name"
-        android:text="@string/english_name"
-        android:background="@color/colorShade"
-        android:textColor="@color/card_text_color"
-        android:fontFamily="casual"
-        android:textStyle="bold"
-        android:textSize="30sp"
+        style="@style/card_text_color"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:paddingTop="40dp"
-        android:paddingBottom="10dp"
-        android:paddingLeft="10dp"
-        android:paddingRight="10dp"
+        android:layout_height="0dp"
+        android:background="@color/colorShade"
+        android:fontFamily="casual"
         android:gravity="center_vertical|center_horizontal"
-        android:alpha="0"
-        card_view:layout_constraintTop_toTopOf="parent"
+        android:text="@string/english_name"
+        android:textColor="@color/card_text_color"
+        android:autoSizeTextType="uniform"
+        android:textStyle="bold"
+
+        card_view:layout_constraintBottom_toTopOf="@+id/sanskrit_name"
         card_view:layout_constraintLeft_toLeftOf="parent"
         card_view:layout_constraintRight_toRightOf="parent"
-        style="@style/card_text_color"/>
+        card_view:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/sanskrit_name"
@@ -48,16 +52,16 @@
         android:background="@color/colorShade"
         android:textColor="@color/card_text_color"
         android:fontFamily="monospace"
-        android:textSize="24sp"
+        android:autoSizeTextType="uniform"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:paddingBottom="20dp"
-        android:paddingLeft="10dp"
-        android:paddingRight="10dp"
+        android:layout_height="0dp"
+
         android:gravity="center_vertical|center_horizontal"
-        android:alpha="0"
+
         card_view:layout_constraintTop_toBottomOf="@+id/english_name"
         card_view:layout_constraintLeft_toLeftOf="@+id/english_name"
         card_view:layout_constraintRight_toRightOf="@+id/english_name"
+        card_view:layout_constraintBottom_toTopOf="@+id/card_guideline"
         style="@style/card_text_color"/>
+
 </android.support.constraint.ConstraintLayout>
