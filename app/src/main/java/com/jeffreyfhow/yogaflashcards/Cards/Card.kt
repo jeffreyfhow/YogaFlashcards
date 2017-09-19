@@ -1,8 +1,8 @@
 package com.jeffreyfhow.yogaflashcards.Cards
 import android.content.Context
+import android.support.v7.widget.CardView
 import android.util.AttributeSet
 import android.widget.ImageView
-import android.widget.LinearLayout
 import android.widget.TextView
 import com.jeffreyfhow.yogaflashcards.Pose.Pose
 import com.jeffreyfhow.yogaflashcards.R
@@ -11,7 +11,7 @@ import com.jeffreyfhow.yogaflashcards.R
  * Created by jeffreyhow on 8/6/17.
  * Superclass for Top & Bottom Cards
  */
-open class Card : LinearLayout
+open class Card : CardView
 {
     /**
      * Initialization

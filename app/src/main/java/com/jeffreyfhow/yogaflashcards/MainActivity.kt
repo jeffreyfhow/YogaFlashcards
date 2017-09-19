@@ -8,7 +8,6 @@ import android.support.v7.widget.Toolbar
 import com.jeffreyfhow.yogaflashcards.JsonToPose.PoseBuilder
 import android.view.MenuItem
 import android.view.Menu
-import android.widget.Button
 
 /**
  * Swiping through cards via dragging or buttons
@@ -22,7 +21,7 @@ class MainActivity : AppCompatActivity() {
      */
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main_2)
+        setContentView(R.layout.activity_main)
 
         // Create Deck with Json Data
         val jsonObject = JsonParser.jsonFileToJsonArr("/res/raw/yoga_data_test.json")

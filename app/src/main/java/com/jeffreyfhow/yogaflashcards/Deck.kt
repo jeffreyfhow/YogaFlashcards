@@ -31,7 +31,7 @@ class Deck (private val context: Context, private val poses: MutableList<Pose>) 
     init{
         val activity = context as Activity
         topCard = activity.findViewById(R.id.top_card) as TopCard
-        bottomCard = activity.findViewById(R.id.back_card) as BottomCard
+        bottomCard = activity.findViewById(R.id.bottom_card) as BottomCard
 
         topCard.registerMoveObserver(bottomCard)
         topCard.registerReleaseObserver(this)
