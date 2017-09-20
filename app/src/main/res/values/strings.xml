@@ -17,4 +17,5 @@
     <string name="background_label">background label</string>
     <string name="future_updates_description">future updates description</string>
     <string name="future_updates_label">future updates label</string>
+    <string name="back">Back</string>
 </resources>

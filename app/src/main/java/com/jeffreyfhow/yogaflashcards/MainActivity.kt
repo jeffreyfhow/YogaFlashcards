@@ -15,7 +15,7 @@ import android.view.Menu
 class MainActivity : AppCompatActivity() {
 
     private lateinit var deck: Deck
-    private lateinit var infoCard: CardView
+    private lateinit var helpCard: CardView
     /**
      * Create the deck of Pose Cards from json data
      */
@@ -30,8 +30,8 @@ class MainActivity : AppCompatActivity() {
         val myToolbar: Toolbar = findViewById<Toolbar>(R.id.my_toolbar)
         setSupportActionBar(myToolbar)
 
-        infoCard = findViewById<CardView>(R.id.main_info_card)
-        infoCard.visibility = CardView.INVISIBLE
+        helpCard = findViewById<CardView>(R.id.main_help_card)
+        helpCard.visibility = CardView.INVISIBLE
 
     }
 
@@ -60,7 +60,7 @@ class MainActivity : AppCompatActivity() {
      * Click handler for 'Back' button
      */
     fun onBack(v: View){
-        infoCard.visibility = CardView.INVISIBLE
+        helpCard.visibility = CardView.INVISIBLE
     }
 
     /**
@@ -78,11 +78,7 @@ class MainActivity : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             R.id.menu_main_help -> {
-                println("Help")
-                return true
-            }
-            R.id.menu_main_info -> {
-                infoCard.visibility = CardView.VISIBLE
+                helpCard.visibility = CardView.VISIBLE
                 return true
             }
             else -> {

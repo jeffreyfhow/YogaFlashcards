@@ -98,8 +98,8 @@
     </android.support.constraint.ConstraintLayout>
 
     <include
-        android:id="@+id/main_info_card"
-        layout="@layout/info_card"
+        android:id="@+id/main_help_card"
+        layout="@layout/help_card"
         android:visibility="invisible" />
 
 </android.support.design.widget.CoordinatorLayout>
