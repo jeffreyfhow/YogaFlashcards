@@ -24,11 +24,14 @@
         <item name="android:tint">@color/btn_tint</item>
     </style>
 
-    <style name="card_text_color">
+    <style name="card_text_style">
         <item name="android:shadowColor">#000000</item>
         <item name="android:shadowDx">2</item>
         <item name="android:shadowDy">2</item>
         <item name="android:shadowRadius">1</item>
+        <item name="android:textColor">@color/card_text_color</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">0dp</item>
     </style>
 
 </resources>

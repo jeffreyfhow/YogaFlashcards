@@ -3,6 +3,7 @@ import android.content.Context
 import android.support.v7.widget.CardView
 import android.util.AttributeSet
 import android.widget.ImageView
+import android.widget.LinearLayout
 import android.widget.TextView
 import com.jeffreyfhow.yogaflashcards.Pose.Pose
 import com.jeffreyfhow.yogaflashcards.R
@@ -21,6 +22,7 @@ open class Card : CardView
     private var imgView: ImageView? = null
     private var engView: TextView? = null
     private var sanView: TextView? = null
+    private var txtViews: LinearLayout? = null
 
     constructor(context: Context) : this(context, null)
     constructor(context: Context, attrs: AttributeSet?) : this(context, attrs, 0)
@@ -37,6 +39,7 @@ open class Card : CardView
         imgView = imgView ?: findViewById<ImageView>(R.id.pose_image)
         engView = engView ?: findViewById<TextView>(R.id.english_name)
         sanView = sanView ?: findViewById<TextView>(R.id.sanskrit_name)
+        txtViews = txtViews ?: findViewById<LinearLayout>(R.id.card_text_views)
         val drawId: Int = resources.getIdentifier("${pose.img_file?.removeSuffix(".png")}", "drawable", context.packageName)
         imgView?.setImageResource(drawId)
         engView?.text = pose.engName
@@ -48,15 +51,13 @@ open class Card : CardView
      * Makes translation text transparent
      */
     fun hideText(){
-        engView?.alpha = 0f
-        sanView?.alpha = 0f
+        txtViews?.alpha = 0f
     }
 
     /**
      * Makes translation text opaque
      */
     fun showText(){
-        engView?.alpha = 1f
-        sanView?.alpha = 1f
+        txtViews?.alpha = 1f
     }
 }

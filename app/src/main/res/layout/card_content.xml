@@ -28,40 +28,38 @@
         card_view:layout_constraintHorizontal_bias="0.5"
         card_view:srcCompat="@drawable/bird_of_paradise_revolved_l" />
 
-    <TextView
-        android:id="@+id/english_name"
-        style="@style/card_text_color"
+    <LinearLayout
+        android:id="@+id/card_text_views"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:background="@color/colorShade"
-        android:fontFamily="casual"
-        android:gravity="center_vertical|center_horizontal"
-        android:text="@string/english_name"
-        android:textColor="@color/card_text_color"
-        android:autoSizeTextType="uniform"
-        android:textStyle="bold"
-
-        card_view:layout_constraintBottom_toTopOf="@+id/sanskrit_name"
+        android:orientation="vertical"
+        card_view:layout_constraintTop_toTopOf="parent"
+        card_view:layout_constraintBottom_toTopOf="@id/card_guideline"
         card_view:layout_constraintLeft_toLeftOf="parent"
         card_view:layout_constraintRight_toRightOf="parent"
-        card_view:layout_constraintTop_toTopOf="parent" />
+        android:padding="10dp"
+        android:alpha="0">
 
-    <TextView
-        android:id="@+id/sanskrit_name"
-        android:text="@string/sanskrit_name"
-        android:background="@color/colorShade"
-        android:textColor="@color/card_text_color"
-        android:fontFamily="monospace"
-        android:autoSizeTextType="uniform"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+        <TextView
+            android:id="@+id/english_name"
+            android:text="@string/english_name"
+            android:fontFamily="casual"
+            android:textStyle="bold"
+            android:autoSizeTextType="uniform"
+            android:layout_weight="3"
+            android:gravity="bottom|center_horizontal"
+            style="@style/card_text_style" />
 
-        android:gravity="center_vertical|center_horizontal"
+        <TextView
+            android:id="@+id/sanskrit_name"
+            android:text="@string/sanskrit_name"
+            android:fontFamily="monospace"
+            android:autoSizeTextType="uniform"
+            android:layout_weight="2"
+            android:gravity="top|center_horizontal"
+            style="@style/card_text_style" />
+    </LinearLayout>
 
-        card_view:layout_constraintTop_toBottomOf="@+id/english_name"
-        card_view:layout_constraintLeft_toLeftOf="@+id/english_name"
-        card_view:layout_constraintRight_toRightOf="@+id/english_name"
-        card_view:layout_constraintBottom_toTopOf="@+id/card_guideline"
-        style="@style/card_text_color"/>
 
 </android.support.constraint.ConstraintLayout>
