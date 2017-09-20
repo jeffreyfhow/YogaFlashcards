@@ -18,83 +18,57 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_gravity="top"
-        android:layout_marginBottom="32dp"
-        android:layout_marginLeft="32dp"
-        android:layout_marginRight="32dp"
-        android:layout_marginTop="32dp">
+        android:layout_margin="32dp">
 
         <LinearLayout
             android:id="@+id/help_background_group"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
             card_view:layout_constraintHorizontal_bias="0.0"
             card_view:layout_constraintLeft_toLeftOf="parent"
             card_view:layout_constraintRight_toRightOf="parent"
             card_view:layout_constraintTop_toTopOf="parent"
             card_view:layout_constraintVertical_chainStyle="packed"
-            card_view:layout_constraintVertical_bias="0.0"
-            android:layout_marginTop="0dp"
-            android:layout_marginBottom="0dp">
+            style="@style/help_card_group_style">
 
             <TextView
                 android:id="@+id/info_background_label"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginBottom="6dp"
-                android:layout_marginTop="6dp"
-                android:autoSizeTextType="uniform"
-                android:contentDescription="@string/background_label"
                 android:text="@string/background"
-                android:textAllCaps="false"
-                android:textStyle="bold" />
+                android:contentDescription="@string/background_label"
+                android:autoSizeTextType="uniform"
+                style="@style/help_card_label_style" />
 
             <TextView
                 android:id="@+id/info_background_desc"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:autoSizeTextType="uniform"
+                android:text="@string/background_desc"
                 android:contentDescription="@string/background_description"
-                android:text="@string/background_desc" />
+                android:autoSizeTextType="uniform"
+                style="@style/match_match"
+                />
         </LinearLayout>
 
         <LinearLayout
             android:id="@+id/help_controls_group"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
             card_view:layout_constraintLeft_toLeftOf="parent"
             card_view:layout_constraintRight_toRightOf="parent"
             card_view:layout_constraintTop_toBottomOf="@id/help_background_group"
-            android:layout_marginBottom="8dp"
-            android:layout_marginTop="8dp">
+            style="@style/help_card_group_style">
 
             <TextView
                 android:id="@+id/info_controls_label"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="6dp"
-                android:layout_marginTop="6dp"
-                android:autoSizeTextType="uniform"
-                android:contentDescription="controls label"
                 android:text="Controls"
-                android:textAllCaps="false"
-                android:textStyle="bold" />
+                android:contentDescription="controls label"
+                android:autoSizeTextType="uniform"
+                style="@style/help_card_label_style"/>
 
             <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                style="@style/match_wrap"
                 android:orientation="horizontal">
 
                 <ImageView
-                    android:layout_width="24dp"
-                    android:layout_height="24dp"
+                    style="@style/help_card_thumbnail_style"
                     android:src="@drawable/icon_search"/>
 
                 <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
+                    style="@style/help_card_control_desc_style"
                     android:autoSizeTextType="uniform"
                     android:text=" (or tap card)... Reveals the name of the pose." />
             </LinearLayout>
@@ -105,14 +79,11 @@
                 android:orientation="horizontal">
 
                 <ImageView
-                    android:layout_width="24dp"
-                    android:layout_height="24dp"
+                    style="@style/help_card_thumbnail_style"
                     android:src="@drawable/icon_ok78"/>
 
                 <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
+                    style="@style/help_card_control_desc_style"
                     android:autoSizeTextType="uniform"
                     android:text=" (or swipe card right)... You guessed RIGHT! Temporarily removes card from deck." />
             </LinearLayout>
@@ -123,14 +94,11 @@
                 android:orientation="horizontal">
 
                 <ImageView
-                    android:layout_width="24dp"
-                    android:layout_height="24dp"
+                    style="@style/help_card_thumbnail_style"
                     android:src="@drawable/icon_cancel78"/>
 
                 <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
+                    style="@style/help_card_control_desc_style"
                     android:autoSizeTextType="uniform"
                     android:text=" (or swipe card left)... Incorrect guess. Returns card to deck to try again later." />
             </LinearLayout>
@@ -138,50 +106,42 @@
 
         <LinearLayout
             android:id="@+id/help_future_group"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
             card_view:layout_constraintLeft_toLeftOf="parent"
             card_view:layout_constraintRight_toRightOf="parent"
             card_view:layout_constraintTop_toBottomOf="@id/help_controls_group"
-            android:layout_marginTop="8dp"
-            android:layout_marginBottom="8dp">
+            style="@style/help_card_group_style">
 
             <TextView
                 android:id="@+id/info_future_label"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="6dp"
-                android:layout_marginTop="6dp"
-                android:autoSizeTextType="uniform"
-                android:contentDescription="@string/future_updates_label"
                 android:text="@string/future_updates"
-                android:textAllCaps="false"
-                android:textStyle="bold" />
+                android:contentDescription="@string/future_updates_label"
+                android:autoSizeTextType="uniform"
+                style="@style/help_card_label_style"/>
 
             <TextView
                 android:id="@+id/info_future_desc"
+                android:text="@string/info_future_desc"
+                android:contentDescription="@string/future_updates_description"
+                android:autoSizeTextType="uniform"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:autoSizeTextType="uniform"
-                android:contentDescription="@string/future_updates_description"
-                android:text="@string/info_future_desc" />
+                />
         </LinearLayout>
 
         <Button
             android:id="@+id/help_back_button"
+            android:text="@string/back"
+            android:onClick="onBack"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:gravity="center"
-            android:onClick="onBack"
-            android:text="@string/back"
             card_view:layout_constraintBottom_toBottomOf="parent"
             card_view:layout_constraintLeft_toLeftOf="parent"
             card_view:layout_constraintRight_toRightOf="parent"
             card_view:layout_constraintTop_toBottomOf="@id/help_future_group"
-            android:layout_marginTop="8dp"
             card_view:layout_constraintHorizontal_bias="0.5"
-            android:layout_marginBottom="8dp" />
+            style="@style/help_card_group_margin"/>
+
     </android.support.constraint.ConstraintLayout>
 </android.support.v7.widget.CardView>

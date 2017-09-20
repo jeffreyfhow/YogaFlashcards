@@ -1,5 +1,4 @@
 <resources>
-
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Base.Theme.AppCompat.Light">
         <item name="windowNoTitle">true</item>
@@ -8,12 +7,28 @@
         <item name="android:windowContentOverlay">@null</item>
     </style>
 
-    <style name="card_style">
+    <!-- Layout Width & Height-->
+    <style name="match_match">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">match_parent</item>
-        <item name="android:layout_gravity">center</item>
     </style>
 
+    <style name="match_wrap">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="wrap_match">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">match_parent</item>
+    </style>
+
+    <style name="wrap_wrap">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <!-- Buttons -->
     <style name="image_button_style">
         <item name="android:layout_width">0dp</item>
         <item name="android:layout_height">0dp</item>
@@ -24,6 +39,11 @@
         <item name="android:tint">@color/btn_tint</item>
     </style>
 
+    <!-- Cards-->
+    <style name="card_style" parent="match_match">
+        <item name="android:layout_gravity">center</item>
+    </style>
+
     <style name="card_text_style">
         <item name="android:shadowColor">#000000</item>
         <item name="android:shadowDx">2</item>
@@ -32,6 +52,38 @@
         <item name="android:textColor">@color/card_text_color</item>
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">0dp</item>
+    </style>
+
+    <!-- Help Card-->
+    <style name="help_card_group_style" parent="help_card_group_margin">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:orientation">vertical</item>
+    </style>
+
+    <style name="help_card_group_margin">
+        <item name="android:layout_marginTop">8dp</item>
+        <item name="android:layout_marginBottom">8dp</item>
+    </style>
+
+    <style name="help_card_label_margin">
+        <item name="android:layout_marginTop">6dp</item>
+        <item name="android:layout_marginBottom">6dp</item>
+    </style>
+
+    <style name="help_card_label_style" parent="help_card_label_margin">
+        <item name="android:textStyle">bold</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="help_card_thumbnail_style">
+        <item name="android:layout_width">24dp</item>
+        <item name="android:layout_height">24dp</item>
+    </style>
+
+    <style name="help_card_control_desc_style" parent="wrap_wrap">
+        <item name="android:layout_gravity">center_vertical</item>
     </style>
 
 </resources>
