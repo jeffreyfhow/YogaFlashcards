@@ -32,7 +32,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         // Create Deck with Json Data
-        val jsonObject = JsonParser.jsonFileToJsonArr("/res/raw/yoga_data_test.json")
+        val jsonObject = JsonParser.jsonFileToJsonArr("/res/raw/yoga_data.json")
         deck = Deck(this, PoseBuilder.createPoses(jsonObject))
 
         val myToolbar: Toolbar = findViewById<Toolbar>(R.id.my_toolbar)
