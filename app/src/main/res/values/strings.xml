@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Yoga Flash Cards</string>
+    <string name="app_name">Yoga Flashcards</string>
     <string name="test_string">test_string</string>
     <string name="fail_button">fail button</string>
     <string name="pass_button">pass button</string>
