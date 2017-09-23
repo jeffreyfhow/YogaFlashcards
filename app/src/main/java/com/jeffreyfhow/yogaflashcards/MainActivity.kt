@@ -3,11 +3,16 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import JsonParser
+import android.graphics.Color
+import android.graphics.Rect
 import android.support.v7.widget.CardView
 import android.support.v7.widget.Toolbar
 import com.jeffreyfhow.yogaflashcards.JsonToPose.PoseBuilder
 import android.view.MenuItem
 import android.view.Menu
+import android.view.MotionEvent
+import android.widget.ImageButton
+import android.widget.ImageView
 
 /**
  * Swiping through cards via dragging or buttons
@@ -16,6 +21,9 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var deck: Deck
     private lateinit var helpCard: CardView
+    private lateinit var okayBtn: TintImageButton
+    private lateinit var cancelBtn: TintImageButton
+    private lateinit var showBtn: TintImageButton
     /**
      * Create the deck of Pose Cards from json data
      */
@@ -33,26 +41,32 @@ class MainActivity : AppCompatActivity() {
         helpCard = findViewById<CardView>(R.id.main_help_card)
         helpCard.visibility = CardView.INVISIBLE
 
+        okayBtn = findViewById<TintImageButton>(R.id.okay_button)
+        okayBtn.onTouchCallback = { onTrash() }
+        cancelBtn = findViewById<TintImageButton>(R.id.cancel_button)
+        cancelBtn.onTouchCallback = { onKeep() }
+        showBtn = findViewById<TintImageButton>(R.id.show_button)
+        showBtn.onTouchCallback = { onShow() }
     }
 
     /**
      * Click handler for 'Okay' button
      */
-    fun onTrash(v:View){
+    fun onTrash() {
         if(deck.isInteractable) deck.trash(true)
     }
 
     /**
      * Click handler for 'Cancel' button
      */
-    fun onKeep(v:View){
+    fun onKeep(){
         if(deck.isInteractable) deck.keep(true)
     }
 
     /**
      * Click handler for 'Show' button
      */
-    fun onShow(v:View){
+    fun onShow(){
         if(deck.isInteractable) deck.reveal()
     }
 
@@ -88,4 +102,5 @@ class MainActivity : AppCompatActivity() {
             }
         }
     }
+
 }

@@ -46,10 +46,9 @@
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintDimensionRatio="w,1:1" />
 
-        <ImageButton
+        <com.jeffreyfhow.yogaflashcards.TintImageButton
             android:id="@+id/cancel_button"
             android:contentDescription="@string/incorrect_button"
-            android:onClick="onKeep"
             app:layout_constraintTop_toTopOf="@+id/guideline"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
@@ -58,10 +57,9 @@
             app:srcCompat="@drawable/icon_cancel78"
             style="@style/image_button_style" />
 
-        <ImageButton
+        <com.jeffreyfhow.yogaflashcards.TintImageButton
             android:id="@+id/show_button"
             android:contentDescription="@string/show_pose_name_button"
-            android:onClick="onShow"
             app:layout_constraintTop_toTopOf="@+id/guideline"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintRight_toLeftOf="@+id/okay_button"
@@ -70,10 +68,9 @@
             app:srcCompat="@drawable/icon_search"
             style="@style/image_button_style"/>
 
-        <ImageButton
+        <com.jeffreyfhow.yogaflashcards.TintImageButton
             android:id="@+id/okay_button"
             android:contentDescription="@string/correct_button"
-            android:onClick="onTrash"
             app:layout_constraintTop_toTopOf="@+id/guideline"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toRightOf="@+id/show_button"
